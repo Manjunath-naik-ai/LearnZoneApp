@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using LearnZoneDAL;
 using LearnZoneDAL.Models;
 
@@ -9,39 +9,36 @@ namespace LearnMore_Services
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // ✅ CORS CONFIG
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowAllOrigins",
-                    builder =>
+                options.AddPolicy("AllowAngular",
+                    policy =>
                     {
-                        builder.AllowAnyOrigin()
-                               .AllowAnyMethod()
-                               .AllowAnyHeader();
-
-
-
-
-
+                        policy
+                            .WithOrigins(
+                                "http://localhost:4200",
+                                "https://localhost:4200"
+                            )
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
                     });
             });
-            // Add services to the container.
+
+            // DB Context
             builder.Services.AddDbContext<LearnZoneContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionStringName")));
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("YourConnectionStringName")));
 
             builder.Services.AddScoped<LearnMoreRepositary>();
 
-
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-           
-
 
             var app = builder.Build();
 
-
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -50,12 +47,13 @@ namespace LearnMore_Services
 
             app.UseHttpsRedirection();
 
-            app.UseCors("AllowAllOrigins"); 
+            // ✅ IMPORTANT ORDER
+            app.UseRouting();
+            app.UseCors("AllowAngular");
 
             app.UseAuthorization();
 
             app.MapControllers();
-
             app.Run();
         }
     }
