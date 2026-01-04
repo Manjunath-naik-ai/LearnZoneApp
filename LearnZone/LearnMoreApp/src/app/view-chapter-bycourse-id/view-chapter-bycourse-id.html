@@ -1,42 +1,28 @@
 <app-navbar></app-navbar>
-<div class="course-details-container">
-  <!-- Course Header -->
-  <div class="course-header">
-    <h2>Course Title</h2>
-    <p>Course description goes here...</p>
-  </div>
 
-  <!-- Chapters Section -->
-  <h3>📚 Course Chapters</h3>
-  <div class="chapters-list">
-    <div class="chapter-card">
-      <h4>Chapter 1: Introduction</h4>
-      <p>Chapter description...</p>
-    </div>
-    <div class="chapter-card">
-      <h4>Chapter 2: Basics</h4>
-      <p>Chapter description...</p>
+<div class="container mt-4">
+  <h2 class="text-center mb-4 fw-bold">Course Chapters</h2>
+
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let chapter of chapters">
+      <div class="chapter-card h-100">
+        <div class="chapter-header">
+          <span class="chapter-number">Chapter {{ chapter.order }}</span>
+        </div>
+
+        <div class="chapter-body">
+          <h5 class="chapter-title">{{ chapter.title }}</h5>
+          <p class="chapter-desc text-muted">
+            Click to view chapter content
+          </p>
+        </div>
+
+        <div class="chapter-footer">
+          <button class="btn btn-sm btn-primary w-100">
+            View Chapter
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-
-  <!-- Quiz Section -->
-  <h3>📝 Quiz</h3>
-  <div class="quiz-section">
-    <div class="quiz-card">
-      <h4>Q1. Sample Question?</h4>
-      <ul>
-        <li><input type="radio" name="q1" /> Option A</li>
-        <li><input type="radio" name="q1" /> Option B</li>
-        <li><input type="radio" name="q1" /> Option C</li>
-      </ul>
-    </div>
-    <button class="btn-submit">Submit Quiz</button>
-  </div>
-
-  <!-- Feedback Section -->
-  <h3>💬 Feedback</h3>
-  <form class="feedback-form">
-    <textarea placeholder="Write your feedback here..."></textarea>
-    <button type="button" class="btn-feedback">Submit Feedback</button>
-  </form>
 </div>

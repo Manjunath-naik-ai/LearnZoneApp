@@ -17,10 +17,12 @@ import { NgForm } from '@angular/forms';
 })
 export class ViewChapterBycourseId implements OnInit {
 
-  courseId: number = 0;
+
   isLoading = false;
   errorMessage: string | null = null;
-  chapters: any[] = [];
+  
+  courseId!: number;
+chapters: any[] = [];
 
 
   ngOnInit(): void {

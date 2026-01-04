@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'numberOfElements', component: NumberOfElements },
   { path: 'userdashBoard', component: UserDashBoard },
   { path: 'viewChapterBycourseId', component: ViewChapterBycourseId },
-  { path: 'ViewChapterBycourseId/: courseId', component: ViewChapterBycourseId },
+  { path: 'courses/:courseId/chapters', component:ViewChapterBycourseId  },
   
 
 

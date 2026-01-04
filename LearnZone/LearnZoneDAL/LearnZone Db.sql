@@ -589,3 +589,14 @@ INSERT INTO Enrollments (user_id, course_id, enrolled_at, progress) VALUES
 (2, 13, GETDATE(), 0),
 (3, 14, GETDATE(), 0),
 (1, 15, GETDATE(), 0);
+------------------------------
+--adding quizes to chapters instead of courses
+ALTER TABLE Quizzes
+DROP COLUMN course_id;
+
+ALTER TABLE Quizzes
+ADD chapter_id INT;
+
+ALTER TABLE Quizzes
+ADD CONSTRAINT FK_Quizzes_Chapters
+FOREIGN KEY (chapter_id) REFERENCES Chapters(chapter_id);

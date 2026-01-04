@@ -1,110 +1,47 @@
-.course-details-container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.course-header {
-  text-align: center;
-  background: linear-gradient(to right, #8e2de2, #a445b2);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.loading {
-  text-align: center;
-  font-size: 18px;
-  color: #555;
-}
-
-.error-message {
-  color: red;
-  text-align: center;
-  margin: 10px 0;
-}
-
-h3 {
-  margin-top: 30px;
-  color: #333;
-}
-
-.chapters-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
 .chapter-card {
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-  .chapter-card h4 {
-    margin-bottom: 5px;
-    color: #4facfe;
-  }
-
-.quiz-section {
-  background: #f4faff;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+.chapter-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
 }
 
-.quiz-card {
-  margin-bottom: 15px;
-}
-
-  .quiz-card ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .quiz-card li {
-    margin: 5px 0;
-  }
-
-.btn-submit {
-  background: #4facfe;
+.chapter-header {
+  background: linear-gradient(135deg, #ee91e2e5, #e2a6d873);
+  padding: 14px;
   color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
 }
 
-  .btn-submit:hover {
-    background: #00c6ff;
-  }
-
-.feedback-form {
-  margin-top: 15px;
+.chapter-number {
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
-  .feedback-form textarea {
-    width: 100%;
-    min-height: 80px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-bottom: 10px;
-  }
-
-.btn-feedback {
-  background: #28a745;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+.chapter-body {
+  padding: 16px;
+  flex-grow: 1;
+  text-align: center;
 }
 
-  .btn-feedback:hover {
-    background: #218838;
-  }
+.chapter-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.chapter-desc {
+  font-size: 14px;
+}
+
+.chapter-footer {
+  padding: 12px 16px 16px;
+}

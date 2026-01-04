@@ -36,6 +36,9 @@ export class UserDashBoard implements OnInit {
     });
 
   }
+  viewChapters(courseId: number) {
+  this.router.navigate(['/courses', courseId, 'chapters']);
+}
 
   Enroll(courseId: number) {
     console.log("Raw course.id:", courseId, "Type:", typeof courseId);
