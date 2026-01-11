@@ -214,7 +214,16 @@ namespace LearnMore_Services.Controllers
 
         #endregion
 
+        [HttpGet("{chapterId}")]
+        public IActionResult GetChapter(int chapterId)
+        {
+            var chapter = repositary.GetById(chapterId);
 
+            if (chapter == null)
+                return NotFound("Chapter not found");
+
+            return Ok(chapter);
+        }
 
     }
 }

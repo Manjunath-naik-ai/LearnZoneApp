@@ -1,0 +1,49 @@
+/* ===== Course Chapter Content Styling ===== */
+
+.chapter-content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #212529;
+}
+
+.chapter-content h1,
+.chapter-content h2,
+.chapter-content h3 {
+  font-weight: 700;
+  margin: 24px 0 16px;
+}
+
+.chapter-content p {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.chapter-content ul,
+.chapter-content ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.chapter-content li {
+  margin-bottom: 8px;
+}
+
+.chapter-content pre {
+  background: #f8f9fa;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.chapter-content code {
+  background: #eef1f4;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-family: Consolas, monospace;
+}
+
+.chapter-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 16px 0;
+}

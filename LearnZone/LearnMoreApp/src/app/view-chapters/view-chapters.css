@@ -1,0 +1,58 @@
+body {
+  background: #f0f2f5 !important;
+}
+
+
+.chapter-content {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #212529;
+}
+
+/* Headings */
+.chapter-content h1,
+.chapter-content h2,
+.chapter-content h3 {
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Paragraphs */
+.chapter-content p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+/* Lists */
+.chapter-content ul,
+.chapter-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.chapter-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Code blocks */
+.chapter-content pre {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.chapter-content code {
+  background: #f1f3f5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Images */
+.chapter-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}

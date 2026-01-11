@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+/* Sidebar */
+
+.sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.sidebar-title {
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #e91e63;
+}
+
+/* Chapter list items */
+.chapter-item {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  padding: 12px;
+}
+
+.chapter-item.active {
+  background-color: #fce4ec;
+  color: #c2185b;
+  font-weight: 600;
+}
+
+/* Hover */
+.chapter-item:hover {
+  background-color: #f8bbd0;
+}
+
+/* Content wrapper */
+.chapter-wrapper {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: auto;
+}
+/* Pink headings for chapter content */
+.chapter-title
+ {
+  color: #dd789a; /* Pink */
+}

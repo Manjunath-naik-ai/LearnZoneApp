@@ -1,4 +1,14 @@
 ﻿Drop Database LearnZone;
+USE master;
+GO
+
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'LearnZone')
+BEGIN
+    ALTER DATABASE LearnZone SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE LearnZone;
+END
+GO
+
 
 -- 1. Create Database if it doesn't exist
 IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'LearnZone')
@@ -600,3 +610,277 @@ ADD chapter_id INT;
 ALTER TABLE Quizzes
 ADD CONSTRAINT FK_Quizzes_Chapters
 FOREIGN KEY (chapter_id) REFERENCES Chapters(chapter_id);
+-----------------------------------------------
+/* =========================
+   C# COURSE CHAPTERS
+   ========================= */
+/* =========================
+   C# COURSE CHAPTERS
+   ========================= */
+
+UPDATE Chapters
+SET content = '
+<h2>Getting Started with C#</h2>
+
+<p>
+C# (C-Sharp) is a modern, object-oriented programming language developed by Microsoft.
+It is widely used for building desktop applications, web applications, and APIs
+using the .NET platform.
+</p>
+
+<h3>Why Learn C#?</h3>
+<ul>
+  <li>Easy to learn and strongly typed</li>
+  <li>Used in enterprise-level applications</li>
+  <li>Excellent tooling support with Visual Studio</li>
+  <li>Powerful integration with .NET libraries</li>
+</ul>
+
+<h3>What is .NET?</h3>
+<p>
+.NET is a framework that provides runtime and libraries to build applications.
+C# works mainly with the .NET ecosystem.
+</p>
+
+<h3>Your First C# Program</h3>
+<pre>
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello, World!");
+    }
+}
+</pre>
+
+<h3>Summary</h3>
+<p>
+You learned the basics of C# and wrote your first program.
+</p>
+'
+WHERE title = 'Getting Started with C#';
+
+
+UPDATE Chapters
+SET content = '
+<h2>Variables and Data Types</h2>
+
+<p>
+Variables store data in a program. Data types define what kind of data
+a variable can hold.
+</p>
+
+<h3>Common Data Types</h3>
+<ul>
+  <li><b>int</b> – integers</li>
+  <li><b>double</b> – decimal numbers</li>
+  <li><b>char</b> – single character</li>
+  <li><b>string</b> – text</li>
+  <li><b>bool</b> – true or false</li>
+</ul>
+
+<h3>Example</h3>
+<pre>
+int age = 25;
+string name = "John";
+bool isActive = true;
+</pre>
+
+<h3>Summary</h3>
+<p>
+Understanding data types helps prevent runtime errors.
+</p>
+'
+WHERE title = 'Variables and Data Types';
+
+
+UPDATE Chapters
+SET content = '
+<h2>Control Structures</h2>
+
+<p>
+Control structures control the flow of execution in a program.
+</p>
+
+<h3>If-Else</h3>
+<pre>
+if (age >= 18)
+{
+    Console.WriteLine("Eligible");
+}
+else
+{
+    Console.WriteLine("Not eligible");
+}
+</pre>
+
+<h3>Loops</h3>
+<pre>
+for (int i = 1; i <= 5; i++)
+{
+    Console.WriteLine(i);
+}
+</pre>
+
+<h3>Summary</h3>
+<p>
+Control structures help implement decision-making and repetition.
+</p>
+'
+WHERE title = 'Control Structures';
+
+
+/* =========================
+   SQL COURSE CHAPTERS
+   ========================= */
+
+UPDATE Chapters
+SET content = '
+<h2>SQL Basics</h2>
+
+<p>
+SQL (Structured Query Language) is used to manage and query relational databases.
+</p>
+
+<h3>Common Commands</h3>
+<ul>
+  <li>SELECT</li>
+  <li>INSERT</li>
+  <li>UPDATE</li>
+  <li>DELETE</li>
+</ul>
+
+<h3>Example</h3>
+<pre>
+SELECT * FROM Users;
+</pre>
+
+<h3>Summary</h3>
+<p>
+SQL helps retrieve and manipulate data efficiently.
+</p>
+'
+WHERE title = 'SQL Basics';
+
+
+UPDATE Chapters
+SET content = '
+<h2>Joins and Subqueries</h2>
+
+<p>
+Joins combine data from multiple tables. Subqueries are queries inside queries.
+</p>
+
+<h3>INNER JOIN Example</h3>
+<pre>
+SELECT u.name, e.course_id
+FROM Users u
+INNER JOIN Enrollments e
+ON u.user_id = e.user_id;
+</pre>
+
+<h3>Summary</h3>
+<p>
+Joins are essential for relational database queries.
+</p>
+'
+WHERE title = 'Joins and Subqueries';
+
+
+UPDATE Chapters
+SET content = '
+<h2>Indexing and Optimization</h2>
+
+<p>
+Indexes improve query performance by speeding up data access.
+</p>
+
+<h3>Creating an Index</h3>
+<pre>
+CREATE INDEX idx_email ON Users(email);
+</pre>
+
+<h3>Summary</h3>
+<p>
+Proper indexing improves performance but should be used carefully.
+</p>
+'
+WHERE title = 'Indexing and Optimization';
+
+
+/* =========================
+   WEB DEVELOPMENT CHAPTERS
+   ========================= */
+
+UPDATE Chapters
+SET content = '
+<h2>HTML Fundamentals</h2>
+
+<p>
+HTML defines the structure of web pages.
+</p>
+
+<h3>Basic Structure</h3>
+<pre>
+&lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;Hello&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3>Summary</h3>
+<p>
+HTML is the foundation of web development.
+</p>
+'
+WHERE title = 'HTML Fundamentals';
+
+
+UPDATE Chapters
+SET content = '
+<h2>CSS Styling</h2>
+
+<p>
+CSS is used to style HTML elements.
+</p>
+
+<h3>Example</h3>
+<pre>
+p {
+  color: blue;
+  font-size: 16px;
+}
+</pre>
+
+<h3>Summary</h3>
+<p>
+CSS controls layout, colors, and responsiveness.
+</p>
+'
+WHERE title = 'CSS Styling';
+
+
+UPDATE Chapters
+SET content = '
+<h2>JavaScript Basics</h2>
+
+<p>
+JavaScript adds interactivity to web pages.
+</p>
+
+<h3>Example</h3>
+<pre>
+function greet() {
+  alert("Hello World");
+}
+</pre>
+
+<h3>Summary</h3>
+<p>
+JavaScript enables dynamic behavior in web applications.
+</p>
+'
+WHERE title = 'JavaScript Basics';
+

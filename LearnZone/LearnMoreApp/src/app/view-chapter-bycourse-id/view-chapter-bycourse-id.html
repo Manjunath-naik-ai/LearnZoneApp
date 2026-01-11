@@ -18,7 +18,7 @@
         </div>
 
         <div class="chapter-footer">
-          <button class="btn btn-sm btn-primary w-100">
+          <button class="btn btn-sm btn-primary w-100" [routerLink]="['/courses', chapter.courseId, 'chapters', chapter.chapterId]">
             View Chapter
           </button>
         </div>

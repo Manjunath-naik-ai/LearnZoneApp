@@ -115,6 +115,13 @@ export class Lzservice {
   }
 
 
+ getChapter(chapterId: number) {
+  return this.http.get<any>(
+    `https://localhost:7158/api/LearnMoreServices/${chapterId}`
+  ).pipe(catchError(this.handleError));
+}
+
+
   //getChapteronCourseId
   getChapteronCourseId(courseId: number): Observable<any> {
     const params = new HttpParams().set('courseId', courseId.toString());

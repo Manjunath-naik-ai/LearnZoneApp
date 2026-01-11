@@ -16,12 +16,7 @@ import { AllFeedBack } from './all-feed-back/all-feed-back';
 import { NumberOfElements } from './number-of-elements/number-of-elements';
 import { UserDashBoard } from './user-dash-board/user-dash-board';
 import { ViewChapterBycourseId } from './view-chapter-bycourse-id/view-chapter-bycourse-id';
-
-
-
-
-
-
+import { ViewChapters } from './view-chapters/view-chapters';
 
 
 
@@ -44,15 +39,8 @@ const routes: Routes = [
   { path: 'userdashBoard', component: UserDashBoard },
   { path: 'viewChapterBycourseId', component: ViewChapterBycourseId },
   { path: 'courses/:courseId/chapters', component:ViewChapterBycourseId  },
-  
-
-
-
-
- 
-
-
-  
+  {path :    'courses/:courseId/chapters', component: ViewChapterBycourseId},
+ {path: 'courses/:courseId/chapters/:chapterId',component: ViewChapters}
 
 
 ];   

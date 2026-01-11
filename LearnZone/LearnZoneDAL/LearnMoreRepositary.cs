@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LearnZoneDAL
 {
-    public  class LearnMoreRepositary
+    public class LearnMoreRepositary
 
     {
         private readonly LearnZoneContext context;
@@ -27,7 +27,7 @@ namespace LearnZoneDAL
         #region  Login Method
         public Iuser Login(string username, string password)
         {
-            Iuser  user = null;
+            Iuser user = null;
             try
             {
                 var result = context.Users
@@ -56,7 +56,7 @@ namespace LearnZoneDAL
                 };
             }
 
-                return user;
+            return user;
         }
 
         #endregion
@@ -107,8 +107,8 @@ namespace LearnZoneDAL
             List<Course> course = new List<Course>();
             try
             {
-                 course = (from c in context.Courses
-                               select c).ToList();
+                course = (from c in context.Courses
+                          select c).ToList();
             }
             catch (Exception e)
             {
@@ -147,34 +147,34 @@ namespace LearnZoneDAL
 
         #region Enrollment
         public bool EnrollUser(int userId, int courseId)
-    {
-        try
         {
-            // Optional: Check if user and course exist
-            var userExists = context.Users.Any(u => u.UserId == userId);
-        var courseExists = context.Courses.Any(c => c.CourseId == courseId);
-
-            if (!userExists || !courseExists)
-                return false;
-
-            var enrollment = new Enrollment
+            try
             {
-                UserId = userId,
-                CourseId = courseId,
-                EnrolledAt = DateTime.Now,
-                Progress = 0
-            };
+                // Optional: Check if user and course exist
+                var userExists = context.Users.Any(u => u.UserId == userId);
+                var courseExists = context.Courses.Any(c => c.CourseId == courseId);
+
+                if (!userExists || !courseExists)
+                    return false;
+
+                var enrollment = new Enrollment
+                {
+                    UserId = userId,
+                    CourseId = courseId,
+                    EnrolledAt = DateTime.Now,
+                    Progress = 0
+                };
 
                 context.Enrollments.Add(enrollment);
                 context.SaveChanges();
-            return true;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error enrolling user: " + ex.Message);
+                return false;
+            }
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error enrolling user: " + ex.Message);
-            return false;
-        }
-    }
 
         #endregion
 
@@ -185,16 +185,16 @@ namespace LearnZoneDAL
             try
             {
 
-                ch= context.Chapters
+                ch = context.Chapters
                     .Where(c => c.CourseId == courseId)
                     .OrderBy(c => c.Order)
                     .ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ch = null;
                 Console.WriteLine("Error retrieving chapters: " + ex.Message);
-              
+
             }
             return ch;
         }
@@ -268,9 +268,9 @@ namespace LearnZoneDAL
             List<User> users = new List<User>();
             try
             {
-               users = context.Users
-                    .Where(u => u.Role == "User")
-                    .ToList();
+                users = context.Users
+                     .Where(u => u.Role == "User")
+                     .ToList();
             }
             catch (Exception ex)
             {
@@ -473,7 +473,18 @@ namespace LearnZoneDAL
         // }
         #endregion
 
-       
+        public Chapter? GetById(int chapterId)
+        {
+            try{
+                return context.Chapters.FirstOrDefault(c => c.ChapterId == chapterId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error retrieving chapter: " + ex.Message);
+                return null;
+            }
+        }
     }
+
 }
 

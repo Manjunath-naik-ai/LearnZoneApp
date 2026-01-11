@@ -31,6 +31,7 @@ chapters: any[] = [];
     this.lzservice.getChapteronCourseId(this.courseId).subscribe({
       next: (data: any) => {
         this.chapters = data;
+        console.log(data)
         this.isLoading = false;
       },
       error: (error) => {
