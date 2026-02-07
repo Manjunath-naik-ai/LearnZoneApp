@@ -2,8 +2,8 @@
   "name": "learn-more-app",
   "version": "0.0.0",
   "scripts": {
-    "start": "ng serve",
-    "build": "ng build"
+    
+    "build": "ng build --output-path=dist"
   },
   "prettier": {
     "overrides": [
